@@ -1,0 +1,1 @@
+var Controller={init:function(){var e=new Date,i=new Date;i=new Date(i.setDate(i.getDate()-120)),console.log(e),console.log(i),Model.initData(function(n,t){MapViz.draw(n,t),MultiView.init(t,i,e),this.initSlider(i,e)},i,e)},initSlider:function(e,i){$("#slider").dateRangeSlider({bounds:{min:new Date(2009,6,17),max:new Date},defaultValues:{min:e,max:i}})}};Controller.init();

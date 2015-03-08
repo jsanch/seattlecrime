@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='css/theme.css' rel='stylesheet' type='text/css'>
+    <link href='css/page.css' rel='stylesheet' type='text/css'>
+    <link href='//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css' rel='stylesheet'>
+    <!-- %link{:href => "/resources/demos/style.css", :rel => "stylesheet"}/ -->
+    <link href='css/style.css' rel='stylesheet'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <script charset='utf-8' src='http://d3js.org/d3.v3.min.js'></script>
+    <!-- %script{:src => "libs/d3/d3.min.js "} -->
+    <script src='http://code.jquery.com/jquery-1.6.2.min.js'></script>
+    <script src='libs/crossfilter.v1.js'></script>
+    <script src='http://d3js.org/topojson.v1.min.js'></script>
+    <script src='http://d3js.org/queue.v1.min.js'></script>
+    <script src='//code.jquery.com/ui/1.11.3/jquery-ui.js'></script>
+    <link href='css/tipsy.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class='section'>
+      <section id='home' name='home' s=''></section>
+      <div id='headerwrap'>
+        <div class='container'>
+          <br>
+          <div class='row'>
+            <h1>Visualizing Crime in Seattle</h1>
+            <br>
+            <h3>
+              By
+              <a href='https://github.com/jsanch'>Jaime</a>
+            </h3>
+            <br>
+            <br>
+            <div class='col-lg-6 col-lg-offset-3'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='section' id='one'>
+      <div class='row'>
+        <div class='col-md-6'>
+          <div class='spacer'></div>
+          <div class='map'></div>
+        </div>
+        <div class='col-md-6'>
+          <h1>
+            A visual look at crime data in Downtown Seattle.
+          </h1>
+          <p>
+            This project visualizes the Seattle Police Department's 911 Incident Responses through the span of time and space. It focuses on a subset of crimes within a one-mile radius around the  Seahawks' Football Stadium, the CenturyLink Field. This area is of interest because it lies between Seattle's industrial zone, Pioneer Square and the downtown area. This visualization automatically pulls crime records from the last four months. You can take a look at the source here at
+            <a href='https://data.seattle.gov/resource/3k2p-39jp'>
+              Seattle Government's
+            </a>
+            Open Data Portal.
+          </p>
+          <p>
+            The map  gives us a great overview of seattle's crime scene. The green rectangle represents the CenturyLink Field and each dot represents the location where a crime took place. The dots are color coded according to the type of crime. You can hover over a dot to learn more about what happened in that location. Also, you can scroll up and down to zoom in/out of the map.  I used
+            <a href='https://github.com/mbostock/topojson'>topojson</a>
+            and
+            <a href='https://github.com/vlandham/seattle-atlas'>seattle-atlas</a>
+            to generate the map topology and
+            <a href='http://d3js.org/'>d3.js</a>
+            to bind data and render shapes.
+          </p>
+          <p>
+            Below, we have two bar charts that represent the accumulation of crimes over time. These views are coordinated, meaning that you can filter (by dragging your mouse over desired bars) and it will be reflected across both views. The first one aggregates crimes over time of the day where the incidents occurred, and the other does it on a day by day basis. Square's
+            <a hreg='http://square.github.io/crossfilter/'>
+              Crossfilter
+            </a>
+            came in very handy to process large amounts of coordinated data quickly.
+          </p>
+          <p>
+            This is an exploratory visualization. The reader  is encouraged to find outliers and insights with these tools. Look, for example, at the amount of crimes happening at 6am, or check out what happens to crime rates during Christmas. Questions you should be asking as you play with the data: What seems to be the most reported type of crime ? Where are crimes concentrated the most? What time of the day is dangerous? What days have less crime?
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class='section' id='two'>
+      <div class='row'>
+        <div id='charts' style='margin-left:60px;'>
+          <div class='col-md-2'>
+            <div class='chart' id='hour-chart'>
+              <div class='title'>Time of Day</div>
+            </div>
+          </div>
+          <div class='col-md-8'>
+            <div class='chart' id='date-chart' style='padding-left:90px;'>
+              <div class='title'>Date</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <aside id='totals'>
+          <span id='active'>-</span>
+          of
+          <span id='total'>-</span>
+          crimes selected.
+        </aside>
+      </div>
+      <div class='spacer'></div>
+      <div class='spacer'></div>
+      <div class='spacer'></div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <script src='libs/jQRangeSlider-5.7.1/jQAllRangeSliders-min.js'></script>
+    <script src='js/jquery.tipsy.js' type='text/javascript'></script>
+    <script src='js/MapViz.js'></script>
+    <script src='js/MultiView.js'></script>
+    <script src='js/Model.js'></script>
+    <script src='js/Controller.js'></script>
+  </body>
+</html>
